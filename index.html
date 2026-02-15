@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>商品管理アプリ</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>自治体向け 商品管理システム</h1>
+
+  <div class="form-area">
+    <input type="text" id="name" placeholder="商品名">
+    <input type="number" id="price" placeholder="価格">
+    <input type="number" id="stock" placeholder="在庫数">
+    <button id="addBtn">登録</button>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>商品名</th>
+        <th>価格</th>
+        <th>在庫</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody id="productList">
+    </tbody>
+  </table>
+  <input type="text" id="searchInput" placeholder="商品名で検索">
+
+
+  <script src="script.js"></script>
+</body>
+</html>
