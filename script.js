@@ -70,9 +70,8 @@ function render() {
   products
     .filter(p => p.name.toLowerCase().includes(searchValue))
     .forEach(product => {
-     
-        list.innerHTML += `
- <tr>
+      list.innerHTML += `
+<tr>
   <td>${product.id}</td>
   <td>${product.name}</td>
   <td>${product.price}</td>
@@ -82,10 +81,7 @@ function render() {
     <button onclick="deleteProduct(${product.id})">削除</button>
   </td>
 </tr>
-
 `;
-
-      `;
     });
 }
 
@@ -98,4 +94,3 @@ document.addEventListener("DOMContentLoaded", function () {
     addProduct();
   });
 });
-javascript:localStorage.clear()
