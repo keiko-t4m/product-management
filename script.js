@@ -73,10 +73,7 @@ function render() {
     });
 }
 
-
 render();
-
-
 
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("productForm");
@@ -85,5 +82,4 @@ document.addEventListener("DOMContentLoaded", function () {
     addProduct();
   });
 });
-
 
