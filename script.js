@@ -33,7 +33,6 @@ if (index !== -1) {
 editId = null;
 
   }
-
   saveData();
   render();
   clearForm();
