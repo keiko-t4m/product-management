@@ -1,14 +1,22 @@
+localStorage.clear();
+
 // -----------------------------
 // 初期データ読み込み
 // -----------------------------
 let products = JSON.parse(localStorage.getItem("products")) || [];
 let editId = null;
 
+let nextId = parseInt(localStorage.getItem("nextId")) || 1;
+
 // -----------------------------
 // ユニークID生成
 // -----------------------------
+
 function generateId() {
-  return Date.now() + Math.floor(Math.random() * 1000);
+  const id = nextId;
+  nextId++;
+  localStorage.setItem("nextId", nextId);
+  return id;
 }
 
 // -----------------------------
@@ -110,8 +118,8 @@ function render() {
     .forEach(product => {
       list.innerHTML += `
 <tr>
-　<td>${String(product.id).padStart(5, "0")}</td>
-　<td>${product.name}</td>
+ <td>${String(product.id).padStart(5, "0")}</td>
+ <td>${product.name}</td>
  <td>${product.price}</td>
  <td>${product.stock}</td>
  <td>
