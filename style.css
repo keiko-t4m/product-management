@@ -89,3 +89,9 @@ button {
   cursor: pointer;
   transition: 0.2s;
 }
+/* ID列の幅を固定 */
+td:first-child,
+th:first-child {
+  width: 90px;
+}
+
