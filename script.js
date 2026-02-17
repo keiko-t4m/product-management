@@ -50,7 +50,6 @@ function clearForm() {
   document.getElementById("price").value = "";
   document.getElementById("stock").value = "";
 }
-
 function render() {
   const searchValue = document.getElementById("search").value.toLowerCase();
   const list = document.getElementById("productList");
@@ -72,6 +71,7 @@ function render() {
     `;
   });
 }
+
 
 
 render();
