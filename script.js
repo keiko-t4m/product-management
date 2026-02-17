@@ -75,13 +75,8 @@ function render() {
 
 
 render();
-document.addEventListener("DOMContentLoaded", function () {
-  document.getElementById("stock").addEventListener("keypress", function (e) {
-    if (e.key === "Enter") {
-      addProduct();
-    }
-  });
-});
+
+
 
 document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("productForm");
