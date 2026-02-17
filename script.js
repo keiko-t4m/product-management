@@ -56,22 +56,23 @@ function render() {
   const list = document.getElementById("productList");
   list.innerHTML = "";
 
-  products
-    .filter(p => p.name.toLowerCase().includes(searchValue))
-    .forEach((product, index) => {
-      list.innerHTML += `
-        <tr>
-          <td>${product.name}</td>
-          <td>${product.price}</td>
-          <td>${product.stock}</td>
-          <td>
-            <button onclick="editProduct(${index})">編集</button>
-            <button onclick="deleteProduct(${index})">削除</button>
-          </td>
-        </tr>
-      `;
-    });
+  products.forEach((product, index) => {
+    if (!product.name.toLowerCase().includes(searchValue)) return;
+
+    list.innerHTML += `
+      <tr>
+        <td>${product.name}</td>
+        <td>${product.price}</td>
+        <td>${product.stock}</td>
+        <td>
+          <button onclick="editProduct(${index})">編集</button>
+          <button onclick="deleteProduct(${index})">削除</button>
+        </td>
+      </tr>
+    `;
+  });
 }
+
 
 render();
 
