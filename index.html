@@ -9,10 +9,13 @@
 
 <h1>商品管理システム</h1>
 
-<input type="text" id="name" placeholder="商品名">
-<input type="number" id="price" placeholder="価格" inputmode="numeric" pattern="[0-9]*">
-<input type="number" id="stock" placeholder="数量" inputmode="numeric" pattern="[0-9]*">
-<button onclick="addProduct()">登録</button>
+<form id="productForm">
+  <input type="text" id="name" placeholder="商品名">
+  <input type="number" id="price" placeholder="価格" inputmode="numeric">
+  <input type="number" id="stock" placeholder="数量" inputmode="numeric">
+  <button type="submit">登録</button>
+</form>
+
 
 <br><br>
 
