@@ -82,9 +82,13 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
-document.getElementById("productForm").addEventListener("submit", function(e) {
-  e.preventDefault(); // ページリロード防止
-  addProduct();
+
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("productForm");
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    addProduct();
+  });
 });
 
 
