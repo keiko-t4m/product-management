@@ -75,11 +75,9 @@ function render() {
 
 render();
 
-document.addEventListener("DOMContentLoaded", function () {
-  const form = document.getElementById("productForm");
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
-    addProduct();
-  });
+const form = document.getElementById("productForm");
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
+  addProduct();
 });
 
