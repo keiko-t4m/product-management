@@ -70,16 +70,20 @@ function render() {
   products
     .filter(p => p.name.toLowerCase().includes(searchValue))
     .forEach(product => {
-      list.innerHTML += `
-        <tr>
-          <td>${product.name}</td>
-          <td>${product.price}</td>
-          <td>${product.stock}</td>
-          <td>
-            <button onclick="editProduct(${product.id})">編集</button>
-            <button onclick="deleteProduct(${product.id})">削除</button>
-          </td>
-        </tr>
+     
+        list.innerHTML += `
+  <tr>
+    <td>${product.id}</td>
+    <td>${product.name}</td>
+    <td>${product.price}</td>
+    <td>${product.stock}</td>
+    <td>
+      <button onclick="editProduct(${product.id})">編集</button>
+      <button onclick="deleteProduct(${product.id})">削除</button>
+    </td>
+  </tr>
+`;
+
       `;
     });
 }
