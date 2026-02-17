@@ -2,7 +2,7 @@
    ベース設定
 ============================= */
 body {
- max-width: 1000px;
+  max-width: 1000px;
   margin: 60px auto;
   padding: 0 20px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -13,7 +13,9 @@ body {
 h1 {
   text-align: center;
   margin-bottom: 40px;
-  font-weight: 600;
+  font-weight: 700;
+  font-size: 26px;
+  letter-spacing: 1px;
 }
 
 /* =============================
@@ -88,109 +90,4 @@ table {
   background: #ffffff;
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.05);
-}
-
-thead {
-  background-color: #2c7be5;
-  color: white;
-}
-
-th {
-  padding: 14px;
-  font-weight: 600;
-  font-size: 14px;
-  letter-spacing: 0.5px;
-}
-
-td {
-  padding: 12px;
-  font-size: 14px;
-}
-
-/* 偶数行 */
-tbody tr:nth-child(even) {
-  background-color: #f8f9fa;
-}
-
-/* ホバー */
-tbody tr:hover {
-  background-color: #eef3ff;
-  transition: 0.2s;
-}
-
-/* =============================
-   列調整
-============================= */
-
-/* ID列 */
-td:first-child,
-th:first-child {
-  width: 80px;
-}
-
-td:first-child {
-  color: #888;
-  font-weight: 500;
-}
-
-/* 数字右寄せ */
-td:nth-child(3),
-td:nth-child(4) {
-  text-align: right;
-}
-
-/* 操作列 */
-td:last-child,
-th:last-child {
-  width: 140px;
-}
-
-/* =============================
-   ボタン
-============================= */
-td button {
-  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
-}
-
-
-/* 編集ボタン */
-td button:first-child {
-  background-color: #28a745;
-  color: white;
-}
-
-td button:first-child:hover {
-  background-color: #218838;
-}
-
-/* 削除ボタン */
-td button:last-child {
-  background-color: #dc3545;
-  color: white;
-}
-
-td button:last-child:hover {
-  background-color: #c82333;
-}
-
-/* =============================
-   レスポンシブ対応
-============================= */
-@media (max-width: 600px) {
-  form {
-    flex-direction: column;
-  }
-
-  td, th {
-    font-size: 12px;
-    padding: 8px;
-  }
-
-  td:last-child,
-  th:last-child {
-    width: 110px;
-  }
-}
-
-
+  box-shadow: 0 6px 15px rgba(0,0,0,0.05)
