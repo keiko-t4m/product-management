@@ -82,5 +82,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+document.getElementById("productForm").addEventListener("submit", function(e) {
+  e.preventDefault(); // ページリロード防止
+  addProduct();
+});
 
 
