@@ -1,17 +1,31 @@
 let products = JSON.parse(localStorage.getItem("products")) || [];
+let editIndex = null;
 
 function addProduct() {
   const name = document.getElementById("name").value;
   const price = document.getElementById("price").value;
+  const stock = document.getElementById("stock").value;
 
-  if (!name || !price) return;
+  if (!name || !price || !stock) return;
 
-  products.push({ name, price });
+  if (editIndex === null) {
+    products.push({ name, price, stock });
+  } else {
+    products[editIndex] = { name, price, stock };
+    editIndex = null;
+  }
+
   saveData();
   render();
+  clearForm();
+}
 
-  document.getElementById("name").value = "";
-  document.getElementById("price").value = "";
+function editProduct(index) {
+  const product = products[index];
+  document.getElementById("name").value = product.name;
+  document.getElementById("price").value = product.price;
+  document.getElementById("stock").value = product.stock;
+  editIndex = index;
 }
 
 function deleteProduct(index) {
@@ -22,6 +36,12 @@ function deleteProduct(index) {
 
 function saveData() {
   localStorage.setItem("products", JSON.stringify(products));
+}
+
+function clearForm() {
+  document.getElementById("name").value = "";
+  document.getElementById("price").value = "";
+  document.getElementById("stock").value = "";
 }
 
 function render() {
@@ -36,7 +56,11 @@ function render() {
         <tr>
           <td>${product.name}</td>
           <td>${product.price}</td>
-          <td><button onclick="deleteProduct(${index})">削除</button></td>
+          <td>${product.stock}</td>
+          <td>
+            <button onclick="editProduct(${index})">編集</button>
+            <button onclick="deleteProduct(${index})">削除</button>
+          </td>
         </tr>
       `;
     });
