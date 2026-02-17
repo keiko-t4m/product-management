@@ -183,6 +183,13 @@ td button:last-child {
 td button:last-child:hover {
   background-color: #ffe3e3;
 }
+button {
+  padding: 8px 12px;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
 
 /* =============================
    レスポンシブ
@@ -202,3 +209,4 @@ td button:last-child:hover {
     width: 120px;
   }
 }
+
