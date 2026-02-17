@@ -12,12 +12,15 @@ form {
 }
 
 form input {
-  flex: 1;
-  padding: 6px;
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
 }
 
 form button {
-  padding: 6px 12px;
+  width: 100%;
+  padding: 10px;
 }
 
 table {
@@ -29,3 +32,4 @@ th, td {
   padding: 8px;
   text-align: center;
 }
+
