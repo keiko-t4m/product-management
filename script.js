@@ -3,6 +3,7 @@ localStorage.clear();
 // -----------------------------
 // 初期データ読み込み
 // -----------------------------
+
 let products = JSON.parse(localStorage.getItem("products")) || [];
 let editId = null;
 
