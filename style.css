@@ -33,4 +33,18 @@ input {
 form {
   margin-bottom: 20px;
 }
+form {
+  width: 100%;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 8px;
+  text-align: center;
+}
+
 
