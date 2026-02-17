@@ -11,7 +11,10 @@
 
 <input type="text" id="name" placeholder="商品名">
 <input type="number" id="price" placeholder="価格">
+<input type="number" id="stock" placeholder="数量">
 <button onclick="addProduct()">登録</button>
+
+<br><br>
 
 <input type="text" id="search" placeholder="検索" onkeyup="render()">
 
@@ -20,6 +23,7 @@
     <tr>
       <th>商品名</th>
       <th>価格</th>
+      <th>数量</th>
       <th>操作</th>
     </tr>
   </thead>
