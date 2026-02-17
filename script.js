@@ -83,6 +83,17 @@ function deleteProduct(id) {
   saveData();
   render();
 }
+function resetData() {
+  if (confirm("本当に全データを削除しますか？")) {
+    localStorage.removeItem("products");
+    localStorage.removeItem("nextId");
+
+    products = [];
+    nextId = 1;
+
+    render();
+  }
+}
 
 // -----------------------------
 // 保存
