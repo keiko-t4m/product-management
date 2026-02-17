@@ -1,23 +1,16 @@
-
 body {
   max-width: 800px;
   margin: 40px auto;
   font-family: Arial, sans-serif;
 }
 
-input {
-  margin: 5px;
+form {
+  width: 100%;
+  margin-bottom: 20px;
 }
 
-button {
-  margin: 5px;
-}
-form,
 table {
   width: 100%;
-}
-
-table {
   border-collapse: collapse;
 }
 
@@ -25,26 +18,8 @@ th, td {
   padding: 8px;
   text-align: center;
 }
+
 input {
   padding: 6px;
   margin: 5px 0;
 }
-
-form {
-  margin-bottom: 20px;
-}
-form {
-  width: 100%;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-th, td {
-  padding: 8px;
-  text-align: center;
-}
-
-
