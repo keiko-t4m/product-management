@@ -2,34 +2,77 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>商品管理アプリ</title>
+  <title>ポートフォリオ | 自治体向け商品管理システム</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>自治体向け 商品管理システム</h1>
 
-  <div class="form-area">
-    <input type="text" id="name" placeholder="商品名">
-    <input type="number" id="price" placeholder="価格">
-    <input type="number" id="stock" placeholder="在庫数">
-    <button id="addBtn">登録</button>
-  </div>
+<h1>ポートフォリオ</h1>
+<h2>自治体向け商品管理システム</h2>
 
-  <table>
-    <thead>
-      <tr>
-        <th>商品名</th>
-        <th>価格</th>
-        <th>在庫</th>
-        <th>操作</th>
-      </tr>
-    </thead>
-    <tbody id="productList">
-    </tbody>
-  </table>
-  <input type="text" id="searchInput" placeholder="商品名で検索">
+<section>
+  <h3>■ 概要</h3>
+  <p>
+    自治体の返礼品管理業務を想定し、商品登録・編集・削除・検索・データ保存機能を実装しました。
+  </p>
+</section>
 
+<section>
+  <h3>■ 制作背景</h3>
+  <p>
+    地域DXに興味を持ち、業務効率化をテーマに管理画面の基礎機能を実装しました。
+  </p>
+</section>
 
-  <script src="script.js"></script>
+<section>
+  <h3>■ 使用技術</h3>
+  <p>HTML / CSS / JavaScript / localStorage</p>
+</section>
+
+<section>
+  <h3>■ 実装機能</h3>
+  <ul>
+    <li>商品登録</li>
+    <li>一覧表示</li>
+    <li>編集機能</li>
+    <li>削除機能</li>
+    <li>検索機能</li>
+    <li>データ保存機能</li>
+  </ul>
+</section>
+
+<section>
+  <h3>■ 工夫した点</h3>
+  <ul>
+    <li>配列でデータ管理</li>
+    <li>再描画関数でUI更新を統一</li>
+    <li>イベント委譲を用いた削除処理</li>
+    <li>JavaScriptの基礎（配列・DOM操作・イベント処理）を実践的に学習</li>
+  </ul>
+</section>
+
+<section>
+  <h3>■ 今後の改善</h3>
+  <ul>
+    <li>ログイン機能</li>
+    <li>CSV出力機能</li>
+    <li>バックエンド連携（API化）</li>
+  </ul>
+</section>
+
+<section>
+  <h3>■ GitHub</h3>
+  <p>
+    <a href="https://github.com/keiko-t4m/steamship-product-management" target="_blank">
+      ソースコードはこちら
+    </a>
+  </p>
+  <p>
+    <a href="https://keiko-t4m.github.io/steamship-product-management/" target="_blank">
+      デモページはこちら
+    </a>
+  </p>
+</section>
+
 </body>
 </html>
