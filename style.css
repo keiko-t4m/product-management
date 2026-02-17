@@ -95,5 +95,10 @@ td:first-child,
 th:first-child {
   width: 90px;
 }
+td:first-child {
+  color: #888;
+  font-weight: 500;
+}
+
 
 
