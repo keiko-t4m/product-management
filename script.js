@@ -98,3 +98,4 @@ document.addEventListener("DOMContentLoaded", function () {
     addProduct();
   });
 });
+javascript:localStorage.clear()
