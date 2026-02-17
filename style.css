@@ -57,4 +57,10 @@ td button {
   margin: 0 2px;
   cursor: pointer;
 }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
 
