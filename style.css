@@ -54,6 +54,7 @@ form button:hover {
 
 /* テーブル */
 table {
+  
   width: 100%;
   border-collapse: collapse;
   table-layout: fixed;
@@ -99,6 +100,12 @@ td:first-child {
   color: #888;
   font-weight: 500;
 }
+th {
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
+
 
 
 
