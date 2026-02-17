@@ -72,16 +72,17 @@ function render() {
     .forEach(product => {
      
         list.innerHTML += `
-  <tr>
-    <td>${product.id}</td>
-    <td>${product.name}</td>
-    <td>${product.price}</td>
-    <td>${product.stock}</td>
-    <td>
-      <button onclick="editProduct(${product.id})">編集</button>
-      <button onclick="deleteProduct(${product.id})">削除</button>
-    </td>
-  </tr>
+ <tr>
+  <td>${product.id}</td>
+  <td>${product.name}</td>
+  <td>${product.price}</td>
+  <td>${product.stock}</td>
+  <td>
+    <button onclick="editProduct(${product.id})">編集</button>
+    <button onclick="deleteProduct(${product.id})">削除</button>
+  </td>
+</tr>
+
 `;
 
       `;
