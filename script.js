@@ -1,12 +1,16 @@
 let products = JSON.parse(localStorage.getItem("products")) || [];
-let editIndex = null;
+let editId = null;
+
+// ユニークID生成（簡易版）
+function generateId() {
+  return Date.now(); // 現在時刻をIDにする
+}
 
 function addProduct() {
   const name = document.getElementById("name").value.trim();
   const price = document.getElementById("price").value.trim();
   const stock = document.getElementById("stock").value.trim();
 
-  // 半角数字チェック
   const numberRegex = /^[0-9]+$/;
 
   if (!name || !numberRegex.test(price) || !numberRegex.test(stock)) {
@@ -14,11 +18,17 @@ function addProduct() {
     return;
   }
 
-  if (editIndex === null) {
-    products.push({ name, price, stock });
+  if (editId === null) {
+    products.push({
+      id: generateId(),
+      name,
+      price,
+      stock
+    });
   } else {
-    products[editIndex] = { name, price, stock };
-    editIndex = null;
+    const index = products.findIndex(p => p.id === editId);
+    products[index] = { id: editId, name, price, stock };
+    editId = null;
   }
 
   saveData();
@@ -26,17 +36,18 @@ function addProduct() {
   clearForm();
 }
 
+function editProduct(id) {
+  const product = products.find(p => p.id === id);
 
-function editProduct(index) {
-  const product = products[index];
   document.getElementById("name").value = product.name;
   document.getElementById("price").value = product.price;
   document.getElementById("stock").value = product.stock;
-  editIndex = index;
+
+  editId = id;
 }
 
-function deleteProduct(index) {
-  products.splice(index, 1);
+function deleteProduct(id) {
+  products = products.filter(p => p.id !== id);
   saveData();
   render();
 }
@@ -50,35 +61,35 @@ function clearForm() {
   document.getElementById("price").value = "";
   document.getElementById("stock").value = "";
 }
+
 function render() {
   const searchValue = document.getElementById("search").value.toLowerCase();
   const list = document.getElementById("productList");
   list.innerHTML = "";
 
-  products.forEach((product, index) => {
-    if (!product.name.toLowerCase().includes(searchValue)) return;
-
-    list.innerHTML += `
-      <tr>
-        <td>${product.name}</td>
-        <td>${product.price}</td>
-        <td>${product.stock}</td>
-        <td>
-          <button onclick="editProduct(${index})">編集</button>
-          <button onclick="deleteProduct(${index})">削除</button>
-        </td>
-      </tr>
-    `;
-  });
+  products
+    .filter(p => p.name.toLowerCase().includes(searchValue))
+    .forEach(product => {
+      list.innerHTML += `
+        <tr>
+          <td>${product.name}</td>
+          <td>${product.price}</td>
+          <td>${product.stock}</td>
+          <td>
+            <button onclick="editProduct(${product.id})">編集</button>
+            <button onclick="deleteProduct(${product.id})">削除</button>
+          </td>
+        </tr>
+      `;
+    });
 }
-
-
 
 render();
 
-const form = document.getElementById("productForm");
-form.addEventListener("submit", function (e) {
-  e.preventDefault();
-  addProduct();
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("productForm");
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    addProduct();
+  });
 });
-
