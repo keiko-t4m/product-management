@@ -1,3 +1,5 @@
+localStorage.clear();
+
 let products = JSON.parse(localStorage.getItem("products")) || [];
 let editId = null;
 
@@ -27,8 +29,11 @@ function addProduct() {
     });
   } else {
     const index = products.findIndex(p => p.id === editId);
-    products[index] = { id: editId, name, price, stock };
-    editId = null;
+if (index !== -1) {
+  products[index] = { id: editId, name, price, stock };
+}
+editId = null;
+
   }
 
   saveData();
@@ -63,7 +68,10 @@ function clearForm() {
 }
 
 function render() {
-  const searchValue = document.getElementById("search").value.toLowerCase();
+  if (!Array.isArray(products)) {
+  products = [];
+}
+　const searchValue = document.getElementById("search").value.toLowerCase();
   const list = document.getElementById("productList");
   list.innerHTML = "";
 
