@@ -74,7 +74,7 @@ function render() {
   list.innerHTML = "";
 
   products
-    .filter(p => p.name.toLowerCase().includes(searchValue))
+    .filter(p =>p.name && p.name.toLowerCase().includes(searchValue))
     .forEach(product => {
       list.innerHTML += `
 <tr>
