@@ -27,6 +27,9 @@ localStorage
 
 ## ID生成ロジック
 
+IDは `localStorage` に保存された `nextId` をもとに自動採番し、
+`padStart()` を使用して5桁固定の文字列として整形しています。
+
 ```javascript
 function generateId() {
   const id = nextId;
