@@ -4,32 +4,52 @@ body {
   font-family: Arial, sans-serif;
 }
 
+h1 {
+  text-align: center;
+}
+
 form {
-  width: 100%;
   display: flex;
   gap: 10px;
   margin-bottom: 20px;
 }
 
 form input {
-  width: 100%;
+  flex: 1;
   padding: 8px;
-  margin-bottom: 10px;
-  box-sizing: border-box;
 }
 
 form button {
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+#search {
   width: 100%;
-  padding: 10px;
+  padding: 8px;
+  margin-bottom: 15px;
+  box-sizing: border-box;
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
+  table-layout: fixed;
 }
 
 th, td {
+  border: 1px solid #ccc;
   padding: 8px;
   text-align: center;
+  word-break: break-all; /* 長いID対策 */
 }
 
+th {
+  background-color: #f4f4f4;
+}
+
+td button {
+  padding: 4px 8px;
+  margin: 0 2px;
+  cursor: pointer;
+}
