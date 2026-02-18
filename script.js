@@ -1,18 +1,13 @@
-
-
 // -----------------------------
 // 初期データ読み込み
 // -----------------------------
-
 let products = JSON.parse(localStorage.getItem("products")) || [];
 let editId = null;
-
 let nextId = parseInt(localStorage.getItem("nextId")) || 1;
 
 // -----------------------------
-// ユニークID生成
+// ID生成
 // -----------------------------
-
 function generateId() {
   const id = nextId;
   nextId++;
@@ -21,16 +16,29 @@ function generateId() {
 }
 
 // -----------------------------
-// 商品追加・更新
+// 保存
+// -----------------------------
+function saveData() {
+  localStorage.setItem("products", JSON.stringify(products));
+}
+
+// -----------------------------
+// フォーム初期化
+// -----------------------------
+function clearForm() {
+  document.getElementById("name").value = "";
+  document.getElementById("price").value = "";
+  document.getElementById("stock").value = "";
+  editId = null;
+}
+
+// -----------------------------
+// 追加・更新
 // -----------------------------
 function addProduct() {
-  const nameInput = document.getElementById("name");
-  const priceInput = document.getElementById("price");
-  const stockInput = document.getElementById("stock");
-
-  const name = nameInput.value.trim();
-  const price = priceInput.value.trim();
-  const stock = stockInput.value.trim();
+  const name = document.getElementById("name").value.trim();
+  const price = document.getElementById("price").value.trim();
+  const stock = document.getElementById("stock").value.trim();
 
   const numberRegex = /^[0-9]+$/;
 
@@ -40,7 +48,6 @@ function addProduct() {
   }
 
   if (editId === null) {
-    // 新規登録
     products.push({
       id: generateId(),
       name,
@@ -48,12 +55,10 @@ function addProduct() {
       stock
     });
   } else {
-    // 更新
     const index = products.findIndex(p => p.id === editId);
     if (index !== -1) {
       products[index] = { id: editId, name, price, stock };
     }
-    editId = null;
   }
 
   saveData();
@@ -83,76 +88,91 @@ function deleteProduct(id) {
   saveData();
   render();
 }
+
+// -----------------------------
+// 全削除
+// -----------------------------
 function resetData() {
   if (confirm("本当に全データを削除しますか？")) {
     localStorage.removeItem("products");
     localStorage.removeItem("nextId");
-
     products = [];
     nextId = 1;
-
     render();
   }
 }
 
 // -----------------------------
-// 保存
-// -----------------------------
-function saveData() {
-  localStorage.setItem("products", JSON.stringify(products));
-}
-
-// -----------------------------
-// フォーム初期化
-// -----------------------------
-function clearForm() {
-  document.getElementById("name").value = "";
-  document.getElementById("price").value = "";
-  document.getElementById("stock").value = "";
-}
-
-// -----------------------------
-// 再描画
+// 再描画（XSS対策済み）
 // -----------------------------
 function render() {
-  if (!Array.isArray(products)) {
-    products = [];
-  }
-
-  const searchInput = document.getElementById("search");
-  const searchValue = searchInput ? searchInput.value.toLowerCase() : "";
+  const searchValue = document
+    .getElementById("search")
+    .value.toLowerCase();
 
   const list = document.getElementById("productList");
   list.innerHTML = "";
 
   products
-    .filter(p => p.name && p.name.toLowerCase().includes(searchValue))
+    .filter(p => p.name.toLowerCase().includes(searchValue))
     .forEach(product => {
-      list.innerHTML += `
-<tr>
- <td>${String(product.id).padStart(5, "0")}</td>
- <td>${product.name}</td>
- <td>${product.price}</td>
- <td>${product.stock}</td>
- <td>
-    <button onclick="editProduct(${product.id})">編集</button>
-    <button onclick="deleteProduct(${product.id})">削除</button>
-  </td>
-</tr>
-`;
+
+      const tr = document.createElement("tr");
+
+      const idTd = document.createElement("td");
+      idTd.textContent = String(product.id).padStart(5, "0");
+
+      const nameTd = document.createElement("td");
+      nameTd.textContent = product.name;
+
+      const priceTd = document.createElement("td");
+      priceTd.textContent = product.price;
+
+      const stockTd = document.createElement("td");
+      stockTd.textContent = product.stock;
+
+      const actionTd = document.createElement("td");
+
+      const editBtn = document.createElement("button");
+      editBtn.textContent = "編集";
+      editBtn.addEventListener("click", () => editProduct(product.id));
+
+      const deleteBtn = document.createElement("button");
+      deleteBtn.textContent = "削除";
+      deleteBtn.addEventListener("click", () => deleteProduct(product.id));
+
+      actionTd.appendChild(editBtn);
+      actionTd.appendChild(deleteBtn);
+
+      tr.appendChild(idTd);
+      tr.appendChild(nameTd);
+      tr.appendChild(priceTd);
+      tr.appendChild(stockTd);
+      tr.appendChild(actionTd);
+
+      list.appendChild(tr);
     });
 }
 
 // -----------------------------
 // 初期化
 // -----------------------------
-document.addEventListener("DOMContentLoaded", function () {
-  const form = document.getElementById("productForm");
+document.addEventListener("DOMContentLoaded", () => {
 
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
-    addProduct();
-  });
+  document
+    .getElementById("productForm")
+    .addEventListener("submit", e => {
+      e.preventDefault();
+      addProduct();
+    });
+
+  document
+    .getElementById("search")
+    .addEventListener("keyup", render);
+
+  document
+    .getElementById("resetBtn")
+    .addEventListener("click", resetData);
 
   render();
 });
