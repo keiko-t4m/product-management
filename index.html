@@ -10,30 +10,27 @@
 <h1>在庫管理システム</h1>
 
 <form id="productForm">
-  <input type="text" id="name" placeholder="商品名">
-  <input type="number" id="price" placeholder="価格" inputmode="numeric">
-  <input type="number" id="stock" placeholder="数量" inputmode="numeric">
+  <input type="text" id="name" placeholder="商品名" required>
+  <input type="number" id="price" placeholder="価格" required>
+  <input type="number" id="stock" placeholder="数量" required>
   <button type="submit">登録</button>
 </form>
 
-
 <br><br>
 
-<input type="text" id="search" placeholder="検索" onkeyup="render()">
+<input type="text" id="search" placeholder="検索">
+
+<button id="resetBtn">全データ初期化</button>
 
 <table border="1">
-  <button onclick="resetData()">全データ初期化</button>
-
- 
   <thead>
-  <tr>
-    <th>ID</th>
-    <th>商品名</th>
-    <th>価格</th>
-    <th>数量</th>
-    <th>操作</th>
-  </tr>
-
+    <tr>
+      <th>ID</th>
+      <th>商品名</th>
+      <th>価格</th>
+      <th>数量</th>
+      <th>操作</th>
+    </tr>
   </thead>
   <tbody id="productList"></tbody>
 </table>
@@ -43,5 +40,3 @@
 <script src="script.js"></script>
 </body>
 </html>
-
-
