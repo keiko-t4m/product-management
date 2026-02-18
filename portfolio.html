@@ -4,37 +4,38 @@
   <meta charset="UTF-8">
   <title>在庫管理システム | ポートフォリオ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="自治体の返礼品管理業務を想定した商品管理システム。HTML/CSS/JavaScriptで実装し、業務効率化をテーマに制作しました。">
+  <meta name="description" content="在庫管理業務を想定した商品管理システム。HTML/CSS/JavaScriptで実装し、業務効率化をテーマに制作しました。">
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-<header>
+
+<div class="container">
+
+<header class="page-header">
   <h1>在庫管理システム</h1>
   <p>業務効率化を目的としたCRUD機能付き管理アプリケーション</p>
 </header>
 
 <main>
 
-  <section>
+  <section class="card">
     <h2>概要</h2>
     <p>
       在庫管理業務を想定し、商品データの登録・編集・削除・検索機能を実装しました。
       データはlocalStorageに保存し、ブラウザ上で管理できる仕組みを構築しています。
     </p>
-
   </section>
 
-  <section>
+  <section class="card">
     <h2>制作背景</h2>
     <p>
       手作業や表計算ソフトで管理されがちな在庫業務を効率化することを目的に制作しました。
       データの一元管理と検索性の向上を意識して設計しています。
     </p>
-    
   </section>
 
-  <section>
+  <section class="card">
     <h2>使用技術</h2>
     <ul>
       <li>HTML</li>
@@ -44,7 +45,7 @@
     </ul>
   </section>
 
-  <section>
+  <section class="card">
     <h2>実装機能</h2>
     <ul>
       <li>商品登録</li>
@@ -56,17 +57,17 @@
     </ul>
   </section>
 
-  <section>
+  <section class="card">
     <h2>工夫した点</h2>
     <ul>
-      <li>配列によるデータ管理</li>
-      <li>再描画関数を用いたUI更新の統一</li>
-      <li>イベント委譲を利用した削除処理の最適化</li>
-      <li>DOM操作とイベント処理を組み合わせた実装</li>
+      <li>配列によるデータの一元管理</li>
+      <li>再描画関数によるUI更新の統一</li>
+      <li>イベントリスナーによる安全なイベント管理</li>
+      <li>createElement + textContent によるXSS対策</li>
     </ul>
   </section>
 
-  <section>
+  <section class="card">
     <h2>今後の改善</h2>
     <ul>
       <li>ログイン認証機能の追加</li>
@@ -75,7 +76,7 @@
     </ul>
   </section>
 
-  <section>
+  <section class="card">
     <h2>リンク</h2>
     <p>
       <a href="https://github.com/keiko-t4m/product-management" target="_blank" rel="noopener noreferrer">
@@ -91,9 +92,11 @@
 
 </main>
 
-<footer>
+<footer class="page-footer">
   <p>&copy; 2026 Keiko-t4m</p>
 </footer>
+
+</div>
 
 </body>
 </html>
