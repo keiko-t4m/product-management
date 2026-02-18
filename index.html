@@ -3,40 +3,55 @@
 <head>
   <meta charset="UTF-8">
   <title>在庫管理システム</title>
+
+  <!-- スマホ対応 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<h1>在庫管理システム</h1>
+<div class="container">
 
-<form id="productForm">
-  <input type="text" id="name" placeholder="商品名" required>
-  <input type="number" id="price" placeholder="価格" required>
-  <input type="number" id="stock" placeholder="数量" required>
-  <button type="submit">登録</button>
-</form>
+  <h1>在庫管理システム</h1>
 
-<br><br>
+  <!-- 登録フォーム -->
+  <form id="productForm">
+    <input type="text" id="name" placeholder="商品名" required>
+    <input type="number" id="price" placeholder="価格" required>
+    <input type="number" id="stock" placeholder="数量" required>
+    <button type="submit">登録</button>
+  </form>
 
-<input type="text" id="search" placeholder="検索">
+  <!-- 検索 -->
+  <input type="text" id="search" placeholder="商品名で検索">
 
-<button id="resetBtn">全データ初期化</button>
+  <!-- 全削除ボタン -->
+  <button id="resetBtn">全データ初期化</button>
 
-<table border="1">
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>商品名</th>
-      <th>価格</th>
-      <th>数量</th>
-      <th>操作</th>
-    </tr>
-  </thead>
-  <tbody id="productList"></tbody>
-</table>
+  <!-- 一覧テーブル -->
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>商品名</th>
+        <th>価格</th>
+        <th>数量</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody id="productList"></tbody>
+  </table>
 
-<p><a href="portfolio.html">ポートフォリオ詳細はこちら</a></p>
+  <!-- ポートフォリオリンク -->
+  <p style="margin-top:20px;">
+    <a href="portfolio.html">ポートフォリオ詳細はこちら</a>
+  </p>
+
+</div>
 
 <script src="script.js"></script>
+
 </body>
 </html>
